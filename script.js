@@ -1,4 +1,3 @@
-
 // ================= DISPLAY =================
 
 const display = document.querySelector("#display");
@@ -24,8 +23,12 @@ const minus = document.querySelector("#minus-btn");
 const multiply = document.querySelector("#multiply-btn");
 const divide = document.querySelector("#divide-btn");
 
- //delete
+
+// Delete + Clear
 const deleteButton = document.querySelector("#delete-btn");
+const clearButton = document.querySelector("#clear-btn");
+
+
 // Equals
 const equals = document.querySelector("#equals-btn");
 
@@ -82,81 +85,134 @@ function chooseOperator(symbol) {
     currentInput = "";
 
 }
-if(plus){
+
+
+if (plus) {
+
     plus.addEventListener("click", function () {
         chooseOperator("+");
     });
+
 }
 
-if(minus){
+
+if (minus) {
+
     minus.addEventListener("click", function () {
         chooseOperator("-");
     });
+
 }
 
-if(multiply){
+
+if (multiply) {
+
     multiply.addEventListener("click", function () {
         chooseOperator("*");
     });
+
 }
 
-if(divide){
+
+if (divide) {
+
     divide.addEventListener("click", function () {
         chooseOperator("/");
     });
-}
 
+}
 
 
 // ================= EQUALS =================
+
 if (equals) {
+
     equals.addEventListener("click", function () {
 
-    secondNumber = currentInput;
+        secondNumber = currentInput;
 
 
-    if (operator === "+") {
-        answer = Number(firstNumber) + Number(secondNumber);
-    }
+        if (operator === "+") {
+            answer = Number(firstNumber) + Number(secondNumber);
+        }
 
-    else if (operator === "-") {
-        answer = Number(firstNumber) - Number(secondNumber);
-    }
+        else if (operator === "-") {
+            answer = Number(firstNumber) - Number(secondNumber);
+        }
 
-    else if (operator === "*") {
-        answer = Number(firstNumber) * Number(secondNumber);
-    }
+        else if (operator === "*") {
+            answer = Number(firstNumber) * Number(secondNumber);
+        }
 
-    else if (operator === "/") {
-        answer = Number(firstNumber) / Number(secondNumber);
-    }
-
-
-    display.value = answer;
+        else if (operator === "/") {
+            answer = Number(firstNumber) / Number(secondNumber);
+        }
 
 
-    currentInput = answer;
+        display.value = answer;
+
+
+        currentInput = answer;
+        firstNumber = "";
+        secondNumber = "";
+        operator = "";
+
+    });
+
+}
+
+
+// ================= CLEAR =================
+
+function clearDisplay() {
+
+    display.value = "";
+
+    currentInput = "";
+
     firstNumber = "";
+
     secondNumber = "";
+
     operator = "";
 
-    });
-}
-//===============clear=======================
-function clearDisplay() {
-    display.value = "";
+    answer = "";
+
 }
 
-//================== delete ====================
-function deleteLast() {
-    display.value = display.value.slice(0, -1);
+
+if (clearButton) {
+
+    clearButton.addEventListener("click", function () {
+
+        clearDisplay();
+
+    });
+
 }
+
+
+// ================= DELETE =================
+
+function deleteLast() {
+
+    display.value = display.value.slice(0, -1);
+
+    currentInput = display.value;
+
+}
+
 
 if (deleteButton) {
+
     deleteButton.addEventListener("click", function () {
+
         deleteLast();
+
     });
-} 
+
+}
+    
 // ================= POWERS =================
 
 function power(number) {
@@ -170,37 +226,59 @@ function power(number) {
 }
 
 
-squared.addEventListener("click", function () {
-    power(2);
-});
+if (squared) {
+
+    squared.addEventListener("click", function () {
+        power(2);
+    });
+
+}
 
 
-cubed.addEventListener("click", function () {
-    power(3);
-});
+if (cubed) {
+
+    cubed.addEventListener("click", function () {
+        power(3);
+    });
+
+}
 
 
-tesseracted.addEventListener("click", function () {
-    power(4);
-});
+if (tesseracted) {
+
+    tesseracted.addEventListener("click", function () {
+        power(4);
+    });
+
+}
 
 
-quintic.addEventListener("click", function () {
-    power(5);
-});
+if (quintic) {
+
+    quintic.addEventListener("click", function () {
+        power(5);
+    });
+
+}
+
 
 
 // ================= SQUARE ROOT =================
 
-squareroot.addEventListener("click", function () {
+if (squareroot) {
 
-    answer = Math.sqrt(Number(currentInput));
+    squareroot.addEventListener("click", function () {
 
-    display.value = answer;
+        answer = Math.sqrt(Number(currentInput));
 
-    currentInput = answer;
+        display.value = answer;
 
-});
+        currentInput = answer;
+
+    });
+
+}
+
 
 
 // ================= SCREEN SWITCHING =================
@@ -210,64 +288,111 @@ let currentScreen = 0;
 
 // 0 = Calculator
 // 1 = Encryption
-// 2 = Math Tools
+// 2 = Voice Recorder
 // 3 = Conversions
+
 function showScreen() {
 
-    calculatorScreen.style.display = "none";
-    encryptionScreen.style.display = "none";
-    voiceRecorderScreen.style.display = "none";
-    conversionsScreen.style.display = "none";
 
-    if (currentScreen === 0) {
+    if (calculatorScreen) {
+        calculatorScreen.style.display = "none";
+    }
+
+    if (encryptionScreen) {
+        encryptionScreen.style.display = "none";
+    }
+
+    if (voiceRecorderScreen) {
+        voiceRecorderScreen.style.display = "none";
+    }
+
+    if (conversionsScreen) {
+        conversionsScreen.style.display = "none";
+    }
+
+
+
+    if (currentScreen === 0 && calculatorScreen) {
+
         calculatorScreen.style.display = "block";
+
     }
 
-    else if (currentScreen === 1) {
+
+    else if (currentScreen === 1 && encryptionScreen) {
+
         encryptionScreen.style.display = "block";
+
     }
 
-    else if (currentScreen === 2) {
+
+    else if (currentScreen === 2 && voiceRecorderScreen) {
+
         voiceRecorderScreen.style.display = "block";
+
     }
 
-    else if (currentScreen === 3) {
+
+    else if (currentScreen === 3 && conversionsScreen) {
+
         conversionsScreen.style.display = "block";
+
     }
+
 
 }
+
+
+
 if (leftMover) {
 
     leftMover.addEventListener("click", function () {
 
+
         currentScreen--;
 
+
         if (currentScreen < 0) {
+
             currentScreen = 3;
+
         }
+
 
         showScreen();
 
-    });
-
-} 
-if (rightMover) {
-
-    rightMover.addEventListener("click", function () {
-
-        currentScreen++;
-
-        if (currentScreen > 3) {
-            currentScreen = 0;
-        }
-
-        showScreen();
 
     });
 
 }
 
-//======= Encryption Page =======
+
+
+if (rightMover) {
+
+    rightMover.addEventListener("click", function () {
+
+
+        currentScreen++;
+
+
+        if (currentScreen > 3) {
+
+            currentScreen = 0;
+
+        }
+
+
+        showScreen();
+
+
+    });
+
+}
+
+
+
+// ================= ENCRYPTION PAGE =================
 
 
 const words = [
@@ -324,7 +449,9 @@ const words = [
 ];
 
 
+
 const alphabet = {
+
     A:1,
     B:2,
     C:3,
@@ -351,15 +478,14 @@ const alphabet = {
     X:24,
     Y:25,
     Z:26
+
 };
 
 
-// Buttons
+
 const encryptButton = document.querySelector("#encrypt-btn");
 const gencodeword = document.querySelector("#gencodeword-btn");
 
-
-// Inputs
 const messageInput = document.querySelector("#message");
 const encryptionOutput = document.querySelector("#encryption-output");
 const codeWordInput = document.querySelector("#codeword");
@@ -370,195 +496,222 @@ let codeWord = "";
 
 
 
-// Generate Code Word
-
-if(gencodeword){
-
-gencodeword.addEventListener("click", function(){
-
-    const randomIndex = Math.floor(Math.random() * words.length);
-
-    codeWord = words[randomIndex];
+// ================= GENERATE CODE WORD =================
 
 
-    codeWordInput.value = codeWord;
+if (gencodeword) {
 
-    wordTitle.textContent = "Code Word: " + codeWord;
+    gencodeword.addEventListener("click", function () {
 
 
-});
+        const randomIndex = Math.floor(Math.random() * words.length);
+
+
+        codeWord = words[randomIndex];
+
+
+        if (codeWordInput) {
+
+            codeWordInput.value = codeWord;
+
+        }
+
+
+        if (wordTitle) {
+
+            wordTitle.textContent = "Code Word: " + codeWord;
+
+        }
+
+
+    });
+
+}
+// ================= ENCRYPT =================
+
+if (encryptButton) {
+
+    encryptButton.addEventListener("click", function () {
+
+
+        if (codeWord === "") {
+
+            alert("Generate a code word first!");
+
+            return;
+
+        }
+
+
+        let message = messageInput.value.toUpperCase();
+
+
+        let repeatedCodeWord = "";
+
+
+        while (repeatedCodeWord.length < message.length) {
+
+            repeatedCodeWord += codeWord;
+
+        }
+
+
+        repeatedCodeWord = repeatedCodeWord.slice(0, message.length);
+
+
+
+        let encryptedMessage = "";
+
+
+
+        for (let i = 0; i < message.length; i++) {
+
+
+            let messageChar = message[i];
+
+            let codeChar = repeatedCodeWord[i];
+
+
+
+            if (alphabet[messageChar] && alphabet[codeChar]) {
+
+
+                let encryptedPosition =
+                (alphabet[messageChar] + alphabet[codeChar] - 1) % 26 + 1;
+
+
+
+                let encryptedChar =
+                Object.keys(alphabet)
+                .find(letter => alphabet[letter] === encryptedPosition);
+
+
+
+                encryptedMessage += encryptedChar;
+
+
+            }
+
+            else {
+
+                encryptedMessage += messageChar;
+
+            }
+
+
+        }
+
+
+        encryptionOutput.textContent = encryptedMessage;
+
+
+    });
 
 }
 
 
 
-// Encrypt
-
-if(encryptButton){
-
-encryptButton.addEventListener("click", function(){
-
-
-    if(codeWord === ""){
-
-        alert("Generate a code word first!");
-
-        return;
-
-    }
-
-
-    let message = messageInput.value.toUpperCase();
-
-
-    let repeatedCodeWord = "";
-
-
-    while(repeatedCodeWord.length < message.length){
-
-        repeatedCodeWord += codeWord;
-
-    }
-
-
-    repeatedCodeWord = repeatedCodeWord.slice(0,message.length);
-
-
-
-    let encryptedMessage = "";
-
-
-
-    for(let i = 0; i < message.length; i++){
-
-
-        let messageChar = message[i];
-
-        let codeChar = repeatedCodeWord[i];
-
-
-        if(alphabet[messageChar] && alphabet[codeChar]){
-
-
-            let encryptedPosition =
-            (alphabet[messageChar] + alphabet[codeChar] - 1) % 26 + 1;
-
-
-
-            let encryptedChar =
-            Object.keys(alphabet)
-            .find(letter => alphabet[letter] === encryptedPosition);
-
-
-
-            encryptedMessage += encryptedChar;
-
-
-        }
-
-        else{
-
-            encryptedMessage += messageChar;
-
-        }
-
-
-    }
-
-
-    encryptionOutput.textContent = encryptedMessage;
-
-
-});
-
-} 
-// decrypt button 
+// ================= DECRYPT =================
 
 
 const decryptbtn = document.querySelector("#decrypt-btn");
 
-if(decryptbtn){
 
-decryptbtn.addEventListener("click", function(){
-
-    if(codeWord === ""){
-
-        alert("Generate a code word first!");
-
-        return;
-
-    }
+if (decryptbtn) {
 
 
-    let message = messageInput.value.toUpperCase();
+    decryptbtn.addEventListener("click", function () {
 
 
-    let repeatedCodeWord = "";
+        if (codeWord === "") {
 
+            alert("Generate a code word first!");
 
-    while(repeatedCodeWord.length < message.length){
-
-        repeatedCodeWord += codeWord;
-
-    }
-
-
-    repeatedCodeWord = repeatedCodeWord.slice(0,message.length);
-
-
-
-    let decryptedMessage = "";
-
-
-
-    for(let i = 0; i < message.length; i++){
-
-
-        let messageChar = message[i];
-
-        let codeChar = repeatedCodeWord[i];
-
-
-        if(alphabet[messageChar] && alphabet[codeChar]){
-
-
-            let decryptPosition =
-            (alphabet[messageChar] - alphabet[codeChar] + 26 - 1) % 26 + 1;
-
-
-
-            let decryptedChar =
-            Object.keys(alphabet)
-            .find(letter => alphabet[letter] === decryptPosition);
-
-
-
-            decryptedMessage += decryptedChar;
-
-
-        }
-
-        else {
-
-
-            decryptedMessage += messageChar;
-
+            return;
 
         }
 
 
-    }
+
+        let message = messageInput.value.toUpperCase();
 
 
-   
+        let repeatedCodeWord = "";
 
 
-    encryptionOutput.textContent = decryptedMessage;
+
+        while (repeatedCodeWord.length < message.length) {
+
+            repeatedCodeWord += codeWord;
+
+        }
 
 
-});
+
+        repeatedCodeWord =
+        repeatedCodeWord.slice(0, message.length);
+
+
+
+        let decryptedMessage = "";
+
+
+
+        for (let i = 0; i < message.length; i++) {
+
+
+            let messageChar = message[i];
+
+            let codeChar = repeatedCodeWord[i];
+
+
+
+            if (alphabet[messageChar] && alphabet[codeChar]) {
+
+
+
+                let decryptPosition =
+                (alphabet[messageChar] - alphabet[codeChar] + 26 - 1) % 26 + 1;
+
+
+
+                let decryptedChar =
+                Object.keys(alphabet)
+                .find(letter => alphabet[letter] === decryptPosition);
+
+
+
+                decryptedMessage += decryptedChar;
+
+
+            }
+
+
+            else {
+
+
+                decryptedMessage += messageChar;
+
+
+            }
+
+
+        }
+
+
+
+        encryptionOutput.textContent = decryptedMessage;
+
+
+
+    });
+
 
 }
+
+
+
+// ================= VOICE RECORDER =================
 
 
 const startButton = document.querySelector("#start-recording");
@@ -567,84 +720,162 @@ const audioPlayback = document.querySelector("#audio-playback");
 const recordStatus = document.querySelector("#record-status");
 const deleteRecordingButton = document.querySelector("#deleteRecording");
 
+
 let mediaRecorder;
+
 let audioChunks = [];
+
 
 
 if (startButton && stopButton) {
 
-    startButton.addEventListener("click", async function(){
+
+    startButton.addEventListener("click", async function () {
+
 
         const stream = await navigator.mediaDevices.getUserMedia({
+
             audio:true
+
         });
+
 
 
         mediaRecorder = new MediaRecorder(stream);
 
+
         audioChunks = [];
+
 
         mediaRecorder.start();
 
-        recordStatus.textContent = "Recording... 🎙";
+
+
+        if (recordStatus) {
+
+            recordStatus.textContent = "Recording... 🎙";
+
+        }
+
 
 
         mediaRecorder.addEventListener("dataavailable", function(event){
 
+
             audioChunks.push(event.data);
+
 
         });
 
+
+
     });
+
+
+
 
 
     stopButton.addEventListener("click", function(){
 
+
+
         if(mediaRecorder){
+
 
             mediaRecorder.stop();
 
-            recordStatus.textContent = "Recording stopped";
+
+
+            if (recordStatus) {
+
+                recordStatus.textContent = "Recording stopped";
+
+            }
+
+
+
 
 
             mediaRecorder.addEventListener("stop", function(){
 
-                const audioBlob = new Blob(audioChunks,{
+
+
+                const audioBlob = new Blob(audioChunks, {
+
                     type:"audio/mp3"
+
                 });
+
 
 
                 const audioURL = URL.createObjectURL(audioBlob);
 
-                audioPlayback.src = audioURL;
+
+
+                if(audioPlayback){
+
+                    audioPlayback.src = audioURL;
+
+                }
+
+
 
             });
 
+
+
         }
 
+
+
     });
+
+
 
 }
 
 
-// Delete recording
+
+
+// ================= DELETE RECORDING =================
+
 
 if(deleteRecordingButton){
 
+
     deleteRecordingButton.addEventListener("click", function(){
 
+
+
         if(mediaRecorder && mediaRecorder.state === "recording"){
+
             mediaRecorder.stop();
+
         }
 
 
-        audioPlayback.src = "";
+
+        if(audioPlayback){
+
+            audioPlayback.src = "";
+
+        }
+
+
 
         audioChunks = [];
 
 
-        recordStatus.textContent = "Recording deleted 🗑";
+
+        if(recordStatus){
+
+            recordStatus.textContent = "Recording deleted 🗑";
+
+        }
+
+
 
     });
+
 
 }
