@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>CyberCalc</title>
+
+    <link rel="stylesheet" href="calculator.css">
+
+</head>
+
+<body>
+
+<div class="calculator">
+
+    <!-- ================= SCREEN ================= -->
+
+    <div class="screen">
+
+        <!-- Calculator -->
+        <div id="calculator-screen">
+
+            <input
+                id="display"
+                type="text"
+                readonly
+                placeholder="0">
+
+        </div>
+<!-- Encryption -->
+<div id="encryption-screen" style="display:none;">
+
+    <h3>Welcome Hacker</h3>
+
+    <h2>Encryption</h2>
+
+    <p>Encrypt or Decrypt Messages</p>
+
+
+    <button id="encrypt-btn">
+        Encrypt
+    </button>
+
+    <button id="decrypt-btn">
+        Decrypt
+    </button>
+
+    <button id="gencodeword-btn">
+        Generate Code Word
+    </button>
+
+
+    <p id="wordTitle">
+        Code Word: None
+    </p>
+
+
+    <input 
+        id="codeword"
+        type="text"
+        placeholder="Enter code word">
+
+
+    <input 
+        type="text"
+        id="message"
+        placeholder="Enter message">
+
+
+    <p id="encryption-output"></p>
+
+
+</div>
+
+
+<div id="voice-recorder" style="display:none;">
+ <h2>🎙 Spy Recorder</h2>
+
+<button id="start-recording">Start Recording</button>
+<button id="stop-recording">Stop Recording</button>
+<button id="deleteRecording">Delete Recording</button>
+<audio id="audio-playback" controls></audio>
+
+<p id="record-status">Ready...</p>
+    
+</div>
+        <!-- Conversions -->
+        <div id="conversions-screen" style="display:none;">
+
+            <h2>Conversions</h2>
+
+            <p>Length, temperature, weight, etc.</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= BUTTONS ================= -->
+
+    <div class="buttons">
+
+        <!-- Operators -->
+        <button id="divide-btn">/</button>
+        <button id="plus-btn">+</button>
+        <button id="minus-btn">-</button>
+        <button id="equals-btn">=</button>
+       <button id="delete-btn">
+          ⌫
+       </button>
+        <!-- Powers -->
+        <button id="squared-btn">x²</button>
+        <button id="cubed-btn">x³</button>
+        <button id="tesseracted-btn">x⁴</button>
+        <button id="quintic-btn">x⁵</button>
+
+        <!-- Other -->
+        <button id="square-root-btn">√</button>
+        <button id="multiply-btn">×</button>
+
+        <!-- Navigation -->
+        <button id="leftmover-btn">◀</button>
+        <button id="rightmover-btn">▶</button>
+        <button id="selector-btn">SELECT</button>
+
+        <!-- Numbers -->
+        <button id="num7-btn">7</button>
+        <button id="num8-btn">8</button>
+        <button id="num9-btn">9</button>
+
+        <button id="num4-btn">4</button>
+        <button id="num5-btn">5</button>
+        <button id="num6-btn">6</button>
+
+        <button id="num1-btn">1</button>
+        <button id="num2-btn">2</button>
+        <button id="num3-btn">3</button>
+
+        <button id="num0-btn">0</button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
