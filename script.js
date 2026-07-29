@@ -142,15 +142,19 @@ if (equals) {
 
     });
 }
+//===============clear=======================
+function clearDisplay() {
+    display.value = "";
+}
 
 //================== delete ====================
+function deleteLast() {
+    display.value = display.value.slice(0, -1);
+}
+
 if (deleteButton) {
     deleteButton.addEventListener("click", function () {
-
-        currentInput = currentInput.slice(0, -1);
-
-        display.value = currentInput;
-
+        deleteLast();
     });
 } 
 // ================= POWERS =================
